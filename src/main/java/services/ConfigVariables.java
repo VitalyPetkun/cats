@@ -13,7 +13,7 @@ public enum ConfigVariables {
         this.variables = variables;
     }
 
-    public String getVariables() {
+    public String getVariable() {
         return variables;
     }
 }
