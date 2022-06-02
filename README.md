@@ -1,2 +1,0 @@
-# educats
-Educats testing
