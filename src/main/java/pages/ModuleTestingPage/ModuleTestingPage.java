@@ -11,7 +11,7 @@ public class ModuleTestingPage extends BaseForm {
                 "Module testing page uniqelement"), "Module testing page");
     }
 
-    public void clickLabTaskItem() {
-        new Link(By.xpath("//div[text()='Лабораторные работы']/parent::div"), "Lab task item").click();
+    public void clickLabTasksItem() {
+        new Link(By.xpath("//div[text()='Лабораторные работы']/parent::div"), "Lab tasks item").click();
     }
 }
