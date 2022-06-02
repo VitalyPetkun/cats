@@ -71,5 +71,7 @@ public class StudentActivityTest extends BaseTest{
         SmartLogger.logStep(4, "Select module testing");
         MainPageSteps.clickSelectItems();
         MainPageSteps.clickModuleTestingItem();
+
+
     }
 }
