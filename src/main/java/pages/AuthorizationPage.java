@@ -3,11 +3,7 @@ package pages;
 import elements.Button;
 import elements.TextBox;
 import framework.BaseForm;
-import framework.utils.PropertiesManager;
 import org.openqa.selenium.By;
-import services.ConfigVariables;
-import services.Files;
-import services.Paths;
 
 public class AuthorizationPage extends BaseForm {
 
