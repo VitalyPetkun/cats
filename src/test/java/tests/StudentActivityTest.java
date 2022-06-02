@@ -10,6 +10,7 @@ import services.Paths;
 import services.TestDataVariables;
 import steps.AuthorizationPageSteps;
 import steps.DashBoardPageSteps;
+import steps.MainPageSteps;
 
 public class StudentActivityTest extends BaseTest{
 
@@ -65,5 +66,10 @@ public class StudentActivityTest extends BaseTest{
 
         SmartLogger.logStep(3, "Click Items");
         DashBoardPageSteps.clickItems();
+        MainPageSteps.assertIsOpen();
+
+        SmartLogger.logStep(4, "Select module testing");
+        MainPageSteps.clickSelectItems();
+        MainPageSteps.clickModuleTestingItem();
     }
 }
