@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
 public class AuthorizationPage extends BaseForm {
 
     public AuthorizationPage() {
-        super(new Button(By.xpath("//button[@type='submit']"),"Submit button"), "Authorization page");
+        super(new Button(By.xpath("//button[@type='submit']"),"Authorization page uniq element"), "Authorization page");
     }
 
     public void sendLogin(String login) {
