@@ -9,6 +9,7 @@ import services.Files;
 import services.Paths;
 import services.TestDataVariables;
 import steps.AuthorizationPageSteps;
+import steps.DashBoardPageSteps;
 
 public class StudentActivityTest extends BaseTest{
 
@@ -60,5 +61,9 @@ public class StudentActivityTest extends BaseTest{
         AuthorizationPageSteps.sendLogin(LECTURER_LOGIN);
         AuthorizationPageSteps.sendPassword(LECTURER_PASSWORD);
         AuthorizationPageSteps.clickSubmitBtn();
+        DashBoardPageSteps.assertIsOpen();
+
+        SmartLogger.logStep(3, "Click Items");
+        DashBoardPageSteps.clickItems();
     }
 }
