@@ -11,6 +11,7 @@ import services.TestDataVariables;
 import steps.AuthorizationPageSteps;
 import steps.DashBoardPageSteps;
 import steps.MainPageSteps;
+import steps.ModuleTestingPageSteps.LabTasksPageSteps.LabTasksPageSteps;
 import steps.ModuleTestingPageSteps.ModuleTestingPageSteps;
 
 public class StudentActivityTest extends BaseTest{
@@ -76,6 +77,8 @@ public class StudentActivityTest extends BaseTest{
 
         SmartLogger.logStep(5, "Open visit statistics");
         ModuleTestingPageSteps.clickLabTasks();
+        LabTasksPageSteps.assertIsOpen();
+        LabTasksPageSteps.clickVisitStatistics();
 
     }
 }
