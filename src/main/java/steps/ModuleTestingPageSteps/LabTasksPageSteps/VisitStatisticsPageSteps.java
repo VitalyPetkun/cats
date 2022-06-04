@@ -7,12 +7,12 @@ public class VisitStatisticsPageSteps {
 
     private static final VisitStatisticsPage visitStatisticsPage = new VisitStatisticsPage();
 
-    public void selectGroup(String group) {
+    public static void selectGroup(String group) {
         visitStatisticsPage.clickSelectGroupPopMenu();
         visitStatisticsPage.clickSelectGroupPopMenuItem(group);
     }
 
-    public void openMenuVisitLab(String date) {
+    public static void openMenuVisitLab(String date) {
         visitStatisticsPage.clickLab(date);
     }
 

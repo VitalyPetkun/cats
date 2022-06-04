@@ -12,6 +12,8 @@ import steps.AuthorizationPageSteps;
 import steps.DashBoardPageSteps;
 import steps.MainPageSteps;
 import steps.ModuleTestingPageSteps.LabTasksPageSteps.LabTasksPageSteps;
+import steps.ModuleTestingPageSteps.LabTasksPageSteps.VisitLabMenuPageSteps;
+import steps.ModuleTestingPageSteps.LabTasksPageSteps.VisitStatisticsPageSteps;
 import steps.ModuleTestingPageSteps.ModuleTestingPageSteps;
 
 public class StudentActivityTest extends BaseTest{
@@ -46,6 +48,19 @@ public class StudentActivityTest extends BaseTest{
                     Files.TEST_DATA.getFile(),
                     TestDataVariables.STUDENT_NAME.getVariable()
             );
+    private final String GROUP = PropertiesManager
+            .getValue(
+                    Paths.TEST_RESOURCES_PATH.getPath(),
+                    Files.TEST_DATA.getFile(),
+                    TestDataVariables.GROUP.getVariable()
+            );
+    private final String LAB_DATE = PropertiesManager
+            .getValue(
+                    Paths.TEST_RESOURCES_PATH.getPath(),
+                    Files.TEST_DATA.getFile(),
+                    TestDataVariables.LAB_DATE.getVariable()
+            );
+
 
     private final Integer SCORE = Integer.parseInt(PropertiesManager
             .getValue(
@@ -79,6 +94,12 @@ public class StudentActivityTest extends BaseTest{
         ModuleTestingPageSteps.clickLabTasksItem();
         LabTasksPageSteps.assertIsOpen();
         LabTasksPageSteps.clickVisitStatistics();
+        VisitStatisticsPageSteps.assertIsOpen();
+
+        SmartLogger.logStep(6, "Open visit lab menu");
+        VisitStatisticsPageSteps.selectGroup(GROUP);
+        VisitStatisticsPageSteps.openMenuVisitLab(LAB_DATE);
+        VisitLabMenuPageSteps.assertIsOpen(LAB_DATE);
 
     }
 }

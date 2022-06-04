@@ -35,4 +35,8 @@ public abstract class BaseForm {
 
         return WaiterUtils.invisibilityOfElementLocated(uniqElement.getLocator());
     }
+
+    public String getTextUniqElement() {
+        return uniqElement.getText();
+    }
 }

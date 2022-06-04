@@ -2,6 +2,8 @@ package services;
 
 public enum TestDataVariables {
 
+    GROUP("group"),
+    LAB_DATE("labDate"),
     TRUANCY("truancy"),
     SCORE("score"),
     STUDENT_NAME("studentName");
