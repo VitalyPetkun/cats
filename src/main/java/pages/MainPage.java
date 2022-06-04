@@ -1,6 +1,6 @@
 package pages;
 
-import elements.Button;
+import elements.Iframe;
 import elements.PopMenu;
 import elements.PopMenuItem;
 import framework.BaseForm;
@@ -9,7 +9,7 @@ import org.openqa.selenium.By;
 public class MainPage extends BaseForm {
 
     public MainPage() {
-        super(new Button(By.xpath("//div[@class='diagram']"), "Main page uniq element"), "Main page");
+        super(new Iframe(By.xpath("//iframe[@src='/statistics']"), "Main page uniq element"), "Main page");
     }
 
     public void clickSelectItems() {

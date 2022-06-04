@@ -14,8 +14,12 @@ public abstract class BaseForm {
         this.formName = formName;
     }
 
+    public void setUniqElement(BaseElement uniqElement) {
+        this.uniqElement = uniqElement;
+    }
+
     public boolean isFormOpen() {
-        if(uniqElement.isPresent())
+        if(WaiterUtils.visibilityOfElementLocated(uniqElement.getLocator()).isDisplayed())
             SmartLogger.logInfo("Open " + formName + ".");
         else
             SmartLogger.logWarn("Don't open " + formName + ".");

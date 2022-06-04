@@ -76,7 +76,7 @@ public class StudentActivityTest extends BaseTest{
         ModuleTestingPageSteps.assertIsOpen();
 
         SmartLogger.logStep(5, "Open visit statistics");
-        ModuleTestingPageSteps.clickLabTasks();
+        ModuleTestingPageSteps.clickLabTasksItem();
         LabTasksPageSteps.assertIsOpen();
         LabTasksPageSteps.clickVisitStatistics();
 

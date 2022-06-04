@@ -1,5 +1,6 @@
 package pages.ModuleTestingPage;
 
+import elements.Iframe;
 import elements.Link;
 import framework.BaseForm;
 import org.openqa.selenium.By;
@@ -7,8 +8,12 @@ import org.openqa.selenium.By;
 public class ModuleTestingPage extends BaseForm {
 
     public ModuleTestingPage() {
-        super(new Link(By.xpath("//h2[text()='Модульное тестирование']/parent::span"),
+        super(new Link(By.xpath("//div[contains(@class,'subject-news-component__actions')]"),
                 "Module testing page uniqelement"), "Module testing page");
+    }
+
+    public void switchToIframeNews() {
+        new Iframe(By.xpath("//iframe[@src='/subject/news']"),"News").switchToIframe();
     }
 
     public void clickLabTasksItem() {
