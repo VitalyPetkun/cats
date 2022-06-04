@@ -1,5 +1,6 @@
 package pages.ModuleTestingPage.LabTaskspage;
 
+import elements.Button;
 import elements.Iframe;
 import elements.Link;
 import framework.BaseForm;
@@ -19,7 +20,8 @@ public class LabTasksPage extends BaseForm{
 
     public void clickVisitStatistics() {
         this.switchToIframeLabs();
-        new Link(By.xpath("//span[contains(text(),'Статистика посещения')]"),"Visit statistics").click();
+        new Button(By.xpath("//span[contains(text(),'Статистика посещения')]/parent::span/parent::span/parent::button"),
+                "Visit statistics").click();
         Browser.switchToDefaultContent();
     }
 }

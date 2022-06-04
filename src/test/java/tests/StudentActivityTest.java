@@ -62,15 +62,15 @@ public class StudentActivityTest extends BaseTest{
             );
 
 
-    private final Integer SCORE = Integer.parseInt(PropertiesManager
+    private final Integer TRUANCY = Integer.parseInt(PropertiesManager
             .getValue(
                     Paths.TEST_RESOURCES_PATH.getPath(),
                     Files.TEST_DATA.getFile(),
-                    TestDataVariables.SCORE.getVariable()
+                    TestDataVariables.TRUANCY.getVariable()
             ));
 
     @Test
-    public void score() {
+    public void truancy() {
         SmartLogger.logStep(1, "Open authorization page");
         Browser.openUrl(EDUCATS_URL);
         AuthorizationPageSteps.assertIsOpen();
@@ -100,6 +100,5 @@ public class StudentActivityTest extends BaseTest{
         VisitStatisticsPageSteps.selectGroup(GROUP);
         VisitStatisticsPageSteps.openMenuVisitLab(LAB_DATE);
         VisitLabMenuPageSteps.assertIsOpen(LAB_DATE);
-
     }
 }

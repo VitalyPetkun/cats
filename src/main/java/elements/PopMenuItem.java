@@ -1,9 +1,10 @@
 package elements;
 
 import framework.BaseElement;
-import org.checkerframework.checker.units.qual.A;
+import framework.browser.Browser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,10 +23,18 @@ public class PopMenuItem extends BaseElement {
     }
 
     public void clickItem(String nameItem) {
-        super.findElements().get(this.getItems().indexOf(nameItem)).click();
+        int index = this.getItems().indexOf(nameItem);
+        super.findElements().get(index).click();
     }
 
     public void clickItemOfIndex(int index) {
         super.findElements().get(index).click();
+    }
+
+    public void doubleClickItemOfIndex(int index) {
+        WebElement element = super.findElements().get(index);
+        Actions actions = new Actions(Browser.getDriver());
+        actions.doubleClick(element);
+        actions.build().perform();
     }
 }
