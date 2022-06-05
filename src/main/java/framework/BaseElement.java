@@ -39,6 +39,11 @@ public abstract class BaseElement{
         }
     }
 
+    public void clickAndClear() {
+        this.click();
+        this.findElement().clear();
+    }
+
     public String getText() {
         return this.findElement().getText();
     }
