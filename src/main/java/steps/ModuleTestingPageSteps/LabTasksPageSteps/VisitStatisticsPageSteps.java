@@ -19,6 +19,11 @@ public class VisitStatisticsPageSteps {
         visitStatisticsPage.clickLab(date);
     }
 
+    public static void assertCheck(String studentName, String date, String truancy) {
+        Assert.assertTrue(visitStatisticsPage.checkStudentTruancy(studentName, date, truancy),
+                "Truancy isn't visible");
+    }
+
     public static void assertIsOpen() {
         visitStatisticsPage.switchToIframe();
         Assert.assertTrue(visitStatisticsPage.isFormOpen(), "Visit statistics page isn't open.");

@@ -37,4 +37,8 @@ public class PopMenuItem extends BaseElement {
         actions.doubleClick(element);
         actions.build().perform();
     }
+
+    public String getTextOfIndex(int index) {
+        return super.findElements().get(index).getText();
+    }
 }

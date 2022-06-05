@@ -1,12 +1,14 @@
 package pages.ModuleTestingPage.LabTaskspage;
 
-import elements.Iframe;
-import elements.PopMenu;
-import elements.PopMenuItem;
-import elements.TextBox;
+import elements.*;
 import framework.BaseForm;
 import framework.browser.Browser;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class VisitStatisticsPage extends BaseForm {
 
@@ -42,13 +44,41 @@ public class VisitStatisticsPage extends BaseForm {
         Browser.switchToDefaultContent();
     }
 
+    public boolean checkStudentTruancy(String studentName, String date, String truancy) {
+        this.switchToIframe();
+        String truancyNumber = "";
+        for (List<String> row : this.getBodyList()) {
+            if (row.contains(studentName)) {
+                int index = this.getIndexDateLab(date);
+                truancyNumber = row.get(index + 2);
+                break;
+            }
+        }
+        Browser.switchToDefaultContent();
+        return truancyNumber.contains(truancy);
+    }
+
     public void switchToIframe() {
-        new Iframe(By.xpath("//iframe"),"Labs").switchToIframe();
+        new Iframe(By.xpath("//iframe"), "Labs").switchToIframe();
     }
 
     private int getIndexDateLab(String date) {
         int index = new PopMenuItem(By.xpath("//th//div"), "Labs dates")
                 .getItems().indexOf(date);
         return index;
+    }
+
+    private List<List<String>> getBodyList() {
+        List<List<String>> newList = new ArrayList<>();
+        for (int i = 0; i < Browser.getDriver().findElements(By.xpath("//tbody//tr")).size(); i++) {
+            List<String> strRows = new ArrayList<>();
+            for (int j = 0; j < Browser.getDriver()
+                    .findElements(By.xpath("//tbody//tr")).get(i).findElements(By.xpath("*")).size(); j++) {
+                strRows.add(Browser.getDriver()
+                        .findElements(By.xpath("//tbody//tr")).get(i).findElements(By.xpath("*")).get(j).getText());
+            }
+            newList.add(strRows);
+        }
+        return newList;
     }
 }

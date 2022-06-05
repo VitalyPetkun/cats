@@ -60,14 +60,12 @@ public class StudentActivityTest extends BaseTest{
                     Files.TEST_DATA.getFile(),
                     TestDataVariables.LAB_DATE.getVariable()
             );
-
-
-    private final Integer TRUANCY = Integer.parseInt(PropertiesManager
+    private final String TRUANCY = PropertiesManager
             .getValue(
                     Paths.TEST_RESOURCES_PATH.getPath(),
                     Files.TEST_DATA.getFile(),
                     TestDataVariables.TRUANCY.getVariable()
-            ));
+            );
 
     @Test
     public void truancy() {
@@ -100,5 +98,11 @@ public class StudentActivityTest extends BaseTest{
         VisitStatisticsPageSteps.selectGroup(GROUP);
         VisitStatisticsPageSteps.openMenuVisitLab(LAB_DATE);
         VisitLabMenuPageSteps.assertIsOpen(LAB_DATE);
+
+        SmartLogger.logStep(7, "Set truancy");
+        VisitLabMenuPageSteps.clickTruancyPopMenu(STUDENT_NAME);
+        VisitLabMenuPageSteps.clickTruancyPopMenuItem(TRUANCY);
+        VisitLabMenuPageSteps.clickSave();
+        VisitStatisticsPageSteps.assertCheck(STUDENT_NAME, LAB_DATE, TRUANCY);
     }
 }

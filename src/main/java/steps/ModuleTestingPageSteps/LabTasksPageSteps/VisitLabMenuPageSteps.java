@@ -8,6 +8,18 @@ public class VisitLabMenuPageSteps {
 
     private static final VisitLabMenuPage visitLabMenuPage = new VisitLabMenuPage();
 
+    public static void clickTruancyPopMenu(String studentName) {
+        visitLabMenuPage.clickTruancyPopMenu(studentName);
+    }
+
+    public static void clickTruancyPopMenuItem(String truancy) {
+        visitLabMenuPage.clickTruancyPopMenuItem(truancy);
+    }
+
+    public static void clickSave() {
+        visitLabMenuPage.clickSave();
+    }
+
     public static void assertIsOpen(String date) {
         visitLabMenuPage.switchToIframe();
         Assert.assertEquals(visitLabMenuPage.getTextUniqElement(), date, "Visit lab menu page isn't open.");

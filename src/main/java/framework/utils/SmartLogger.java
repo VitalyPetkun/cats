@@ -22,7 +22,7 @@ public class SmartLogger {
     }
 
     public static void logWarn(String message) {
-        logger.warn("WARN: " + message);
+        getLogger().warn("WARN: " + message);
     }
 
     public static void logError(String message) {

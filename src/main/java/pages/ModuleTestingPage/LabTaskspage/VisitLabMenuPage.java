@@ -39,7 +39,6 @@ public class VisitLabMenuPage extends BaseForm {
     }
 
     private int getStudentIndex(String studentName) {
-        this.switchToIframe();
         int index = -1;
         List<String> studentNames = new PopMenuItem(
                 By.xpath("//mat-cell[contains(@class,'name')]"), "Student names").getItems();
@@ -47,12 +46,10 @@ public class VisitLabMenuPage extends BaseForm {
             if(studentNames.get(i).contains(studentName))
                 index = i;
         }
-        Browser.switchToDefaultContent();
         return index;
     }
 
     private int getStudentTruancyIndex(String studentTruancy) {
-        this.switchToIframe();
         int index = -1;
         List<String> studentTruancies = new PopMenuItem(
                 By.xpath("//mat-option//span"), "Student truancies").getItems();
@@ -60,7 +57,6 @@ public class VisitLabMenuPage extends BaseForm {
             if(studentTruancies.get(i).contains(studentTruancy))
                 index = i;
         }
-        Browser.switchToDefaultContent();
         return index;
     }
 }
