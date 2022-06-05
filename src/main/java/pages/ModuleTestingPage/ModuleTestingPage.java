@@ -19,4 +19,8 @@ public class ModuleTestingPage extends BaseForm {
     public void clickLabTasksItem() {
         new Link(By.xpath("//div[text()='Лабораторные работы']/parent::div"), "Lab tasks item").click();
     }
+
+    public void clickLecturesItem() {
+        new Link(By.xpath("//div[text()='Лекции']/parent::div"), "Lectures item").click();
+    }
 }

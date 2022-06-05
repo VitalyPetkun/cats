@@ -6,6 +6,7 @@ import framework.browser.Browser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import steps.ModuleTestingPageSteps.LabTasksPageSteps.VisitStatisticsPageSteps;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +45,11 @@ public class VisitStatisticsPage extends BaseForm {
     }
 
     public boolean checkStudentTruancy(String studentName, String date, String truancy) {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         Browser.refresh();
         VisitStatisticsPageSteps.assertIsOpen();
         this.switchToIframe();
@@ -51,7 +57,7 @@ public class VisitStatisticsPage extends BaseForm {
         for (List<String> row : this.getBodyList()) {
             if (row.contains(studentName)) {
                 int index = this.getIndexLabDate(date);
-                truancyNumber = row.get(index + 2);
+                truancyNumber = row.get(index + 2).replaceAll("[^0-9]", "");
                 break;
             }
         }

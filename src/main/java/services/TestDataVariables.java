@@ -2,9 +2,12 @@ package services;
 
 public enum TestDataVariables {
 
-    GROUP("group"),
+    LAB_GROUP("labGroup"),
+    LECTURE_GROUP("lectureGroup"),
     LAB_DATE("labDate"),
-    TRUANCY("truancy"),
+    LECTURE_DATE("lectureDate"),
+    LAB_TRUANCY("labTruancy"),
+    LECTURE_TRUANCY("lectureTruancy"),
     SCORE("score"),
     STUDENT_NAME("studentName");
 

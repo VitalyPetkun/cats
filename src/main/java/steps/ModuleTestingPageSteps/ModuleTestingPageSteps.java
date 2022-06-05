@@ -15,6 +15,10 @@ public class ModuleTestingPageSteps {
         moduleTestingPage.clickLabTasksItem();
     }
 
+    public static void clickLecturesItem() {
+        moduleTestingPage.clickLecturesItem();
+    }
+
     public static void assertIsOpen() {
         moduleTestingPage.switchToIframeNews();
         Assert.assertTrue(moduleTestingPage.isFormOpen(), "Module testing page isn't open.");

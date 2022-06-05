@@ -22,13 +22,19 @@ public class ResultLabMenuPage extends BaseForm {
         this.switchToIframe();
         new TextBox(By.xpath("//input[contains(@ng-reflect-placeholder,'Оценка')]"), "Score").clickAndClear();
         new TextBox(By.xpath("//input[contains(@ng-reflect-placeholder,'Оценка')]"), "Score").inputText(score);
+        new TextBox(By.xpath("//input[contains(@ng-reflect-name,'date')]"), "Date").clickAndClear();
+        new TextBox(By.xpath("//input[contains(@ng-reflect-name,'date')]"), "Date").inputText("05.06.2022");
         Browser.switchToDefaultContent();
-
     }
 
     public void clickSave() {
         this.switchToIframe();
         new Button(By.xpath("//span[contains(text(),'Сохранить')]/parent::button"), "Save").click();
         Browser.switchToDefaultContent();
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

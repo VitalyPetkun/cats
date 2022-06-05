@@ -44,12 +44,18 @@ public class VisitLecturesPage extends BaseForm {
 
     public void clickLecture(String date) {
         this.switchToIframe();
-        new PopMenuItem(By.xpath("//td[contains(@class,'mark-cell')]"), "Labs dates")
-                .doubleClickItemOfIndex(this.getIndexLectureDate(date));
+        new PopMenuItem(By
+                .xpath("//td[not(contains(@class,'position')) and not(contains(@class,'name')) and contains(@class,'mat-cell')]"),
+                "Lectures truancy").doubleClickItemOfIndex(this.getIndexLectureDate(date));
         Browser.switchToDefaultContent();
     }
 
     public boolean checkStudentTruancy(String studentName, String date, String truancy) {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         Browser.refresh();
         VisitStatisticsPageSteps.assertIsOpen();
         this.switchToIframe();
@@ -57,7 +63,7 @@ public class VisitLecturesPage extends BaseForm {
         for (List<String> row : this.getBodyList()) {
             if (row.contains(studentName)) {
                 int index = this.getIndexLectureDate(date);
-                truancyNumber = row.get(index + 2);
+                truancyNumber = row.get(index + 2).replaceAll("[^0-9]", "");
                 break;
             }
         }

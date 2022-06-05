@@ -10,7 +10,7 @@ import org.openqa.selenium.By;
 public class LecturesPage extends BaseForm {
 
     public LecturesPage() {
-        super(new Link(By.xpath("//div[@class='labs-component__body']"), "Lectures page uniq element"),
+        super(new Link(By.xpath("//div[contains(@class,'lectures-component')]"), "Lectures page uniq element"),
                 "Lectures page");
     }
 
