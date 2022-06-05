@@ -8,10 +8,16 @@ import org.openqa.selenium.By;
 public class AuthorizationPage extends BaseForm {
 
     public AuthorizationPage() {
-        super(new Button(By.xpath("//button[@type='submit']"),"Authorization page uniq element"), "Authorization page");
+        super(new Button(By.xpath("//a[@routerLink='/register']"), "Authorization page uniq element"),
+                "Authorization page");
     }
 
     public void sendLogin(String login) {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         new TextBox(By.xpath("//input[@formcontrolname='userName']"), "Login").click();
         new TextBox(By.xpath("//input[@formcontrolname='userName']"), "Login").inputText(login);
     }

@@ -1,4 +1,4 @@
-package pages.ModuleTestingPage.LabTaskspage;
+package pages.ModuleTestingPage.LabTasksPage;
 
 import elements.*;
 import framework.BaseForm;
@@ -15,7 +15,7 @@ public class VisitLabMenuPage extends BaseForm {
     }
 
     public void switchToIframe() {
-        new Iframe(By.xpath("//iframe"),"Labs").switchToIframe();
+        new Iframe(By.xpath("//iframe"), "Labs").switchToIframe();
     }
 
     public void clickTruancyPopMenu(String studentName) {
@@ -42,8 +42,8 @@ public class VisitLabMenuPage extends BaseForm {
         int index = -1;
         List<String> studentNames = new PopMenuItem(
                 By.xpath("//mat-cell[contains(@class,'name')]"), "Student names").getItems();
-        for (int i = 0; i < studentNames.size();i++) {
-            if(studentNames.get(i).contains(studentName))
+        for (int i = 0; i < studentNames.size(); i++) {
+            if (studentNames.get(i).contains(studentName))
                 index = i;
         }
         return index;
@@ -53,8 +53,8 @@ public class VisitLabMenuPage extends BaseForm {
         int index = -1;
         List<String> studentTruancies = new PopMenuItem(
                 By.xpath("//mat-option//span"), "Student truancies").getItems();
-        for (int i = 0; i < studentTruancies.size();i++) {
-            if(studentTruancies.get(i).contains(studentTruancy))
+        for (int i = 0; i < studentTruancies.size(); i++) {
+            if (studentTruancies.get(i).contains(studentTruancy))
                 index = i;
         }
         return index;

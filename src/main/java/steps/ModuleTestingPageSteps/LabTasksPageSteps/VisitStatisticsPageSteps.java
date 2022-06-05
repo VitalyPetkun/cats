@@ -2,20 +2,20 @@ package steps.ModuleTestingPageSteps.LabTasksPageSteps;
 
 import framework.browser.Browser;
 import org.testng.Assert;
-import pages.ModuleTestingPage.LabTaskspage.VisitStatisticsPage;
+import pages.ModuleTestingPage.LabTasksPage.VisitStatisticsPage;
 
 public class VisitStatisticsPageSteps {
 
     private static final VisitStatisticsPage visitStatisticsPage = new VisitStatisticsPage();
 
     public static void selectGroup(String group) {
-        if(!visitStatisticsPage.getSelectedGroup().equals(group)) {
+        if (!visitStatisticsPage.getSelectedGroup().equals(group)) {
             visitStatisticsPage.clickSelectGroupPopMenu();
             visitStatisticsPage.clickSelectGroupPopMenuItem(group);
         }
     }
 
-    public static void openMenuVisitLab(String date) {
+    public static void openVisitLabMenu(String date) {
         visitStatisticsPage.clickLab(date);
     }
 

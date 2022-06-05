@@ -2,7 +2,7 @@ package steps.ModuleTestingPageSteps.LabTasksPageSteps;
 
 import framework.browser.Browser;
 import org.testng.Assert;
-import pages.ModuleTestingPage.LabTaskspage.VisitLabMenuPage;
+import pages.ModuleTestingPage.LabTasksPage.VisitLabMenuPage;
 
 public class VisitLabMenuPageSteps {
 

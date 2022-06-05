@@ -1,4 +1,4 @@
-package pages.ModuleTestingPage.LabTaskspage;
+package pages.ModuleTestingPage.LabTasksPage;
 
 import elements.Button;
 import elements.Iframe;

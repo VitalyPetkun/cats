@@ -2,13 +2,14 @@ package steps.ModuleTestingPageSteps.LabTasksPageSteps;
 
 import framework.browser.Browser;
 import org.testng.Assert;
-import pages.ModuleTestingPage.LabTaskspage.LabTasksPage;
+import pages.ModuleTestingPage.LabTasksPage.LabTasksPage;
 
 public class LabTasksPageSteps {
 
     private static final LabTasksPage labTasksPage = new LabTasksPage();
 
-    private LabTasksPageSteps() {}
+    private LabTasksPageSteps() {
+    }
 
     public static void clickVisitStatistics() {
         labTasksPage.clickVisitStatistics();

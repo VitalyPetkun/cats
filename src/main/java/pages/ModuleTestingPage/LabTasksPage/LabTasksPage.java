@@ -1,4 +1,4 @@
-package pages.ModuleTestingPage.LabTaskspage;
+package pages.ModuleTestingPage.LabTasksPage;
 
 import elements.Button;
 import elements.Iframe;
@@ -7,7 +7,7 @@ import framework.BaseForm;
 import framework.browser.Browser;
 import org.openqa.selenium.By;
 
-public class LabTasksPage extends BaseForm{
+public class LabTasksPage extends BaseForm {
 
     public LabTasksPage() {
         super(new Link(By.xpath("//div[@class='labs-component__body']"), "Lab tasks page uniq element"),
@@ -15,7 +15,7 @@ public class LabTasksPage extends BaseForm{
     }
 
     public void switchToIframeLabs() {
-        new Iframe(By.xpath("//iframe[@src='/subject/news']"),"Labs").switchToIframe();
+        new Iframe(By.xpath("//iframe[@src='/subject/news']"), "Labs").switchToIframe();
     }
 
     public void clickVisitStatistics() {

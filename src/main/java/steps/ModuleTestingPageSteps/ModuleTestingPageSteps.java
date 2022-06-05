@@ -8,7 +8,8 @@ public class ModuleTestingPageSteps {
 
     private static final ModuleTestingPage moduleTestingPage = new ModuleTestingPage();
 
-    private ModuleTestingPageSteps() {}
+    private ModuleTestingPageSteps() {
+    }
 
     public static void clickLabTasksItem() {
         moduleTestingPage.clickLabTasksItem();

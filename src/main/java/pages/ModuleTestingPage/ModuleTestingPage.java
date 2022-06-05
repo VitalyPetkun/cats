@@ -13,7 +13,7 @@ public class ModuleTestingPage extends BaseForm {
     }
 
     public void switchToIframeNews() {
-        new Iframe(By.xpath("//iframe[@src='/subject/news']"),"News").switchToIframe();
+        new Iframe(By.xpath("//iframe[@src='/subject/news']"), "News").switchToIframe();
     }
 
     public void clickLabTasksItem() {

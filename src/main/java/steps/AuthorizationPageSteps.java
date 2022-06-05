@@ -7,7 +7,8 @@ public class AuthorizationPageSteps {
 
     private static final AuthorizationPage authorizationPage = new AuthorizationPage();
 
-    private AuthorizationPageSteps() {}
+    private AuthorizationPageSteps() {
+    }
 
     public static void sendLogin(String login) {
         authorizationPage.sendLogin(login);

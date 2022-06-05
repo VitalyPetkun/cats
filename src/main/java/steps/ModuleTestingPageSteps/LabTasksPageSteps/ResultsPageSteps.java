@@ -2,7 +2,7 @@ package steps.ModuleTestingPageSteps.LabTasksPageSteps;
 
 import framework.browser.Browser;
 import org.testng.Assert;
-import pages.ModuleTestingPage.LabTaskspage.ResultsPage;
+import pages.ModuleTestingPage.LabTasksPage.ResultsPage;
 
 public class ResultsPageSteps {
 
@@ -10,14 +10,14 @@ public class ResultsPageSteps {
 
 
     public static void selectGroup(String group) {
-        if(!resultsPage.getSelectedGroup().equals(group)) {
+        if (!resultsPage.getSelectedGroup().equals(group)) {
             resultsPage.clickSelectGroupPopMenu();
             resultsPage.clickSelectGroupPopMenuItem(group);
         }
     }
 
-    public static void openMenuScoreLab(String date) {
-        resultsPage.clickLab(date);
+    public static void openResultLabMenu(String studentName, String lab) {
+        resultsPage.clickLab(studentName, lab);
     }
 
     public static void clickMorePopMenu() {

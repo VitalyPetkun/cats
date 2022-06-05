@@ -20,7 +20,7 @@ public class BrowserFactory {
                     ConfigVariables.BROWSER_NAME.getVariables()
             );
 
-    public static WebDriver factoryMethod() throws Exception{
+    public static WebDriver factoryMethod() throws Exception {
         WebDriver driver;
 
         switch (BROWSER_NAME) {

@@ -42,34 +42,11 @@ public class Browser {
         driver = null;
     }
 
-    public static String getWindowHandle() {
-        return getDriver().getWindowHandle();
-    }
-
-    public static void switchToNextWindow(String originalWindow) {
-        WaiterUtils.numberOfWindowsToBe();
-
-        for (String windowHandle : getDriver().getWindowHandles()) {
-            if(!originalWindow.contentEquals(windowHandle)) {
-                switchToWindow(windowHandle);
-                break;
-            }
-        }
-    }
-
     public static void switchToDefaultContent() {
         getDriver().switchTo().defaultContent();
     }
 
     public static void refresh() {
         getDriver().navigate().refresh();
-    }
-
-    public static void switchToWindow(String windowHandle) {
-        getDriver().switchTo().window(windowHandle);
-    }
-
-    public static void closeWindow() {
-        getDriver().close();
     }
 }

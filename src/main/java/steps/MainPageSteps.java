@@ -7,7 +7,8 @@ public class MainPageSteps {
 
     private static final MainPage mainPage = new MainPage();
 
-    private MainPageSteps() {}
+    private MainPageSteps() {
+    }
 
     public static void clickSelectItems() {
         mainPage.clickSelectItems();

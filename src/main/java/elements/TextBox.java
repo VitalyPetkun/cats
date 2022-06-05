@@ -10,7 +10,7 @@ public class TextBox extends BaseElement {
     }
 
     public void inputText(String text) {
-        SmartLogger.logInfo("Input '" + text +"' in " + this.getElementName() + ".");
+        SmartLogger.logInfo("Input '" + text + "' in " + this.getElementName() + ".");
         this.findElement().sendKeys(text);
     }
 

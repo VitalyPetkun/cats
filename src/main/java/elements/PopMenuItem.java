@@ -16,7 +16,7 @@ public class PopMenuItem extends BaseElement {
 
     public List<String> getItems() {
         List<String> items = new ArrayList<>();
-        for (WebElement item:super.findElements()) {
+        for (WebElement item : super.findElements()) {
             items.add(item.getText());
         }
         return items;

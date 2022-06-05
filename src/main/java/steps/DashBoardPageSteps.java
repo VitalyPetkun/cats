@@ -7,7 +7,8 @@ public class DashBoardPageSteps {
 
     private static final DashBoardPage dashBoardPage = new DashBoardPage();
 
-    private DashBoardPageSteps() {}
+    private DashBoardPageSteps() {
+    }
 
     public static void clickItems() {
         dashBoardPage.clickItems();

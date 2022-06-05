@@ -1,4 +1,4 @@
-package pages.ModuleTestingPage.LabTaskspage;
+package pages.ModuleTestingPage.LabTasksPage;
 
 import elements.Iframe;
 import elements.PopMenu;
@@ -8,6 +8,7 @@ import framework.BaseForm;
 import framework.browser.Browser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import steps.ModuleTestingPageSteps.LabTasksPageSteps.ResultsPageSteps;
 
 import java.util.ArrayList;
@@ -40,11 +41,19 @@ public class ResultsPage extends BaseForm {
         Browser.switchToDefaultContent();
     }
 
-    public void clickLab(String lab) {
+    public void clickLab(String studentName, String lab) {
         this.switchToIframe();
-        new PopMenuItem(By
-                .xpath("//td[not(contains(@class,'position')) and not(contains(@class,'name')) and not(contains(@class,'total'))]"),
-                "Labs scores").doubleClickItemOfIndex(this.getIndexLabNumbers(lab));
+        List<WebElement> body = Browser.getDriver().findElements(By.xpath("//tbody//tr"));
+        for (int i = 0; i < body.size(); i++) {
+            List<WebElement> rows = body.get(i).findElements(By
+                    .xpath("//td[not(contains(@class,'position')) and not(contains(@class,'total'))]"));
+            if (rows.get(0).getText().contains(studentName)) {
+                Actions actions = new Actions(Browser.getDriver());
+                actions.doubleClick(rows.get(this.getIndexLabNumbers(lab) + 1));
+                actions.build().perform();
+                break;
+            }
+        }
         Browser.switchToDefaultContent();
     }
 

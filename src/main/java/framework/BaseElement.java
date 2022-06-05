@@ -9,7 +9,7 @@ import framework.utils.SmartLogger;
 
 import java.util.List;
 
-public abstract class BaseElement{
+public abstract class BaseElement {
 
     private By locator;
 

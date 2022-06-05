@@ -19,7 +19,7 @@ public abstract class BaseForm {
     }
 
     public boolean isFormOpen() {
-        if(WaiterUtils.visibilityOfElementLocated(uniqElement.getLocator()).isDisplayed())
+        if (WaiterUtils.visibilityOfElementLocated(uniqElement.getLocator()).isDisplayed())
             SmartLogger.logInfo("Open " + formName + ".");
         else
             SmartLogger.logWarn("Don't open " + formName + ".");
@@ -28,7 +28,7 @@ public abstract class BaseForm {
     }
 
     public boolean isFormClose() {
-        if(WaiterUtils.invisibilityOfElementLocated(uniqElement.getLocator()))
+        if (WaiterUtils.invisibilityOfElementLocated(uniqElement.getLocator()))
             SmartLogger.logInfo("Close " + formName + ".");
         else
             SmartLogger.logWarn("Don't close " + formName + ".");

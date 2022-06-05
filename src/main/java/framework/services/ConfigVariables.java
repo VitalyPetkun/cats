@@ -3,8 +3,7 @@ package framework.services;
 public enum ConfigVariables {
 
     BROWSER_NAME("browserName"),
-    WAITING_TIME("waitingTime"),
-    EXPECTED_NUMBER_OF_WINDOWS("expectedNumberOfWindows");
+    WAITING_TIME("waitingTime");
 
     private String variables;
 

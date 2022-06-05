@@ -11,12 +11,10 @@ import services.TestDataVariables;
 import steps.AuthorizationPageSteps;
 import steps.DashBoardPageSteps;
 import steps.MainPageSteps;
-import steps.ModuleTestingPageSteps.LabTasksPageSteps.LabTasksPageSteps;
-import steps.ModuleTestingPageSteps.LabTasksPageSteps.VisitLabMenuPageSteps;
-import steps.ModuleTestingPageSteps.LabTasksPageSteps.VisitStatisticsPageSteps;
+import steps.ModuleTestingPageSteps.LabTasksPageSteps.*;
 import steps.ModuleTestingPageSteps.ModuleTestingPageSteps;
 
-public class StudentActivityTest extends BaseTest{
+public class StudentActivityTest extends BaseTest {
 
     private final String LECTURER_LOGIN = PropertiesManager
             .getValue(
@@ -72,6 +70,8 @@ public class StudentActivityTest extends BaseTest{
                     Files.TEST_DATA.getFile(),
                     TestDataVariables.TRUANCY.getVariable()
             );
+    private final String LAB = "ЛР1";
+
 
     @Test
     public void score() {
@@ -98,18 +98,17 @@ public class StudentActivityTest extends BaseTest{
         ModuleTestingPageSteps.clickLabTasksItem();
         LabTasksPageSteps.assertIsOpen();
         LabTasksPageSteps.clickResults();
-        VisitStatisticsPageSteps.assertIsOpen();
+        ResultsPageSteps.assertIsOpen();
 
-        SmartLogger.logStep(6, "Open visit lab menu");
-        VisitStatisticsPageSteps.selectGroup(GROUP);
-        VisitStatisticsPageSteps.openMenuVisitLab(LAB_DATE);
-        VisitLabMenuPageSteps.assertIsOpen(LAB_DATE);
+        SmartLogger.logStep(6, "Open result lab menu");
+        ResultsPageSteps.selectGroup(GROUP);
+        ResultsPageSteps.openResultLabMenu(STUDENT_NAME, LAB);
 
-        SmartLogger.logStep(7, "Set truancy");
-        VisitLabMenuPageSteps.clickTruancyPopMenu(STUDENT_NAME);
-        VisitLabMenuPageSteps.clickTruancyPopMenuItem(TRUANCY);
-        VisitLabMenuPageSteps.clickSave();
-        VisitStatisticsPageSteps.assertCheck(STUDENT_NAME, LAB_DATE, TRUANCY);
+        SmartLogger.logStep(7, "Set score");
+        ResultLabMenuPageSteps.assertIsOpen();
+        ResultLabMenuPageSteps.sendScore(SCORE);
+        ResultLabMenuPageSteps.clickSave();
+        ResultsPageSteps.assertCheck(STUDENT_NAME, LAB, SCORE);
 
         SmartLogger.logStep(8, "Exit lecturer");
         VisitStatisticsPageSteps.clickMorePopMenu();
@@ -131,14 +130,14 @@ public class StudentActivityTest extends BaseTest{
         MainPageSteps.clickModuleTestingItem();
         ModuleTestingPageSteps.assertIsOpen();
 
-        SmartLogger.logStep(11, "Open visit statistics");
+        SmartLogger.logStep(11, "Open results");
         ModuleTestingPageSteps.clickLabTasksItem();
         LabTasksPageSteps.assertIsOpen();
-        LabTasksPageSteps.clickVisitStatistics();
-        VisitStatisticsPageSteps.assertIsOpen();
+        LabTasksPageSteps.clickResults();
+        ResultsPageSteps.assertIsOpen();
 
-        SmartLogger.logStep(12, "Check truancy");
-        VisitStatisticsPageSteps.assertCheck(STUDENT_NAME, LAB_DATE, TRUANCY);
+        SmartLogger.logStep(12, "Check score");
+        ResultsPageSteps.assertCheck(STUDENT_NAME, LAB, SCORE);
     }
 
     @Test
@@ -170,7 +169,7 @@ public class StudentActivityTest extends BaseTest{
 
         SmartLogger.logStep(6, "Open visit lab menu");
         VisitStatisticsPageSteps.selectGroup(GROUP);
-        VisitStatisticsPageSteps.openMenuVisitLab(LAB_DATE);
+        VisitStatisticsPageSteps.openVisitLabMenu(LAB_DATE);
         VisitLabMenuPageSteps.assertIsOpen(LAB_DATE);
 
         SmartLogger.logStep(7, "Set truancy");
