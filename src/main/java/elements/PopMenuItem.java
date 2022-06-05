@@ -23,7 +23,13 @@ public class PopMenuItem extends BaseElement {
     }
 
     public void clickItem(String nameItem) {
-        int index = this.getItems().indexOf(nameItem);
+        int index = 0;
+        for(int i = 0; i < this.getItems().size(); i++) {
+            if(this.getItems().get(i).contains(nameItem)){
+                index = i;
+                break;
+            }
+        }
         super.findElements().get(index).click();
     }
 
