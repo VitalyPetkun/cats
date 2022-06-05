@@ -8,7 +8,7 @@ import framework.BaseForm;
 import framework.browser.Browser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import steps.ModuleTestingPageSteps.LabTasksPageSteps.VisitStatisticsPageSteps;
+import steps.ModuleTestingPageSteps.LabTasksPageSteps.ResultsPageSteps;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,16 +58,16 @@ public class ResultsPage extends BaseForm {
         Browser.refresh();
         ResultsPageSteps.assertIsOpen();
         this.switchToIframe();
-        String truancyNumber = "";
+        String scoreNumber = "";
         for (List<String> row : this.getBodyList()) {
             if (row.contains(studentName)) {
                 int index = this.getIndexLabNumbers(lab);
-                truancyNumber = row.get(index + 2);
+                scoreNumber = row.get(index + 2);
                 break;
             }
         }
         Browser.switchToDefaultContent();
-        return truancyNumber.contains(truancy);
+        return scoreNumber.contains(score);
     }
 
     public void switchToIframe() {
