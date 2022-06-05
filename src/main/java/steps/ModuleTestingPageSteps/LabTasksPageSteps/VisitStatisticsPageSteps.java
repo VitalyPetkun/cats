@@ -8,6 +8,9 @@ public class VisitStatisticsPageSteps {
 
     private static final VisitStatisticsPage visitStatisticsPage = new VisitStatisticsPage();
 
+    private VisitStatisticsPageSteps() {
+    }
+
     public static void selectGroup(String group) {
         if (!visitStatisticsPage.getSelectedGroup().equals(group)) {
             visitStatisticsPage.clickSelectGroupPopMenu();

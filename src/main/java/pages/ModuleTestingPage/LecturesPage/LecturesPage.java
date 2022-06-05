@@ -18,10 +18,10 @@ public class LecturesPage extends BaseForm {
         new Iframe(By.xpath("//iframe"), "Lectures").switchToIframe();
     }
 
-    public void clickVisitStatistics() {
+    public void clickVisitLectures() {
         this.switchToIframeLectures();
         new Button(By.xpath("//span[contains(text(),'Посещение лекций')]/parent::span/parent::button"),
-                "Visit statistics").click();
+                "Visit lectures").click();
         Browser.switchToDefaultContent();
     }
 }

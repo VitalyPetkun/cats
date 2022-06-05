@@ -8,6 +8,8 @@ public class ResultsPageSteps {
 
     private static ResultsPage resultsPage = new ResultsPage();
 
+    private ResultsPageSteps() {
+    }
 
     public static void selectGroup(String group) {
         if (!resultsPage.getSelectedGroup().equals(group)) {

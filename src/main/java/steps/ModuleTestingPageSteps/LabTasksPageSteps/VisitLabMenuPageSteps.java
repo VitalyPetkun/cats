@@ -8,6 +8,9 @@ public class VisitLabMenuPageSteps {
 
     private static final VisitLabMenuPage visitLabMenuPage = new VisitLabMenuPage();
 
+    private VisitLabMenuPageSteps() {
+    }
+
     public static void clickTruancyPopMenu(String studentName) {
         visitLabMenuPage.clickTruancyPopMenu(studentName);
     }

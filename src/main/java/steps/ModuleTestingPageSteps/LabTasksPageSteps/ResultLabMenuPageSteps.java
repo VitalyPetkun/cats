@@ -8,6 +8,9 @@ public class ResultLabMenuPageSteps {
 
     private static ResultLabMenuPage resultLabMenuPage = new ResultLabMenuPage();
 
+    private ResultLabMenuPageSteps() {
+    }
+
     public static void sendScore(String score) {
         resultLabMenuPage.sendScore(score);
     }
