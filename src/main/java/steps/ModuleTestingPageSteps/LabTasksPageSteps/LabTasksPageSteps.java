@@ -14,6 +14,10 @@ public class LabTasksPageSteps {
         labTasksPage.clickVisitStatistics();
     }
 
+    public static void clickResults() {
+        labTasksPage.clickResults();
+    }
+
     public static void assertIsOpen() {
         labTasksPage.switchToIframeLabs();
         Assert.assertTrue(labTasksPage.isFormOpen(), "Lab tasks page isn't open.");

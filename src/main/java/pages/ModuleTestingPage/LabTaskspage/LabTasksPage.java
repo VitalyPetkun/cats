@@ -24,4 +24,11 @@ public class LabTasksPage extends BaseForm{
                 "Visit statistics").click();
         Browser.switchToDefaultContent();
     }
+
+    public void clickResults() {
+        this.switchToIframeLabs();
+        new Button(By.xpath("//span[contains(text(),'Результаты')]/parent::span/parent::span/parent::button"),
+                "Visit statistics").click();
+        Browser.switchToDefaultContent();
+    }
 }

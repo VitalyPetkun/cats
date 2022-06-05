@@ -1,19 +1,23 @@
 package pages.ModuleTestingPage.LabTaskspage;
 
-import elements.*;
+import elements.Iframe;
+import elements.PopMenu;
+import elements.PopMenuItem;
+import elements.TextBox;
 import framework.BaseForm;
 import framework.browser.Browser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import steps.ModuleTestingPageSteps.LabTasksPageSteps.VisitStatisticsPageSteps;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class VisitStatisticsPage extends BaseForm {
+public class ResultsPage extends BaseForm {
 
-    public VisitStatisticsPage() {
-        super(new TextBox(By.xpath("//table"), "Visit statistics page uniq element"),
-                "Visit statistics page");
+    public ResultsPage() {
+        super(new TextBox(By.xpath("//table"), "Results page uniq element"),
+                "Results page");
     }
 
     public void clickSelectGroupPopMenu() {
@@ -36,21 +40,28 @@ public class VisitStatisticsPage extends BaseForm {
         Browser.switchToDefaultContent();
     }
 
-    public void clickLab(String date) {
+    public void clickLab(String lab) {
         this.switchToIframe();
-        new PopMenuItem(By.xpath("//td[contains(@class,'mark-cell')]"), "Labs dates")
-                .doubleClickItemOfIndex(this.getIndexLabDate(date));
+        new PopMenuItem(By
+                .xpath("//td[not(contains(@class,'position')) and not(contains(@class,'name')) and not(contains(@class,'total'))]"),
+                "Labs scores").doubleClickItemOfIndex(this.getIndexLabNumbers(lab));
         Browser.switchToDefaultContent();
     }
 
-    public boolean checkStudentTruancy(String studentName, String date, String truancy) {
+    private int getIndexLabNumbers(String lab) {
+        int index = new PopMenuItem(By.xpath("//th//div"), "Labs numbers")
+                .getItems().indexOf(lab);
+        return index;
+    }
+
+    public boolean checkStudentScore(String studentName, String lab, String score) {
         Browser.refresh();
-        VisitStatisticsPageSteps.assertIsOpen();
+        ResultsPageSteps.assertIsOpen();
         this.switchToIframe();
         String truancyNumber = "";
         for (List<String> row : this.getBodyList()) {
             if (row.contains(studentName)) {
-                int index = this.getIndexLabDate(date);
+                int index = this.getIndexLabNumbers(lab);
                 truancyNumber = row.get(index + 2);
                 break;
             }
@@ -69,12 +80,6 @@ public class VisitStatisticsPage extends BaseForm {
 
     public void clickExitBtn() {
         new PopMenuItem(By.xpath("//span[contains(text(),'Выйти')]/parent::button"), "More").click();
-    }
-
-    private int getIndexLabDate(String date) {
-        int index = new PopMenuItem(By.xpath("//th//div"), "Labs dates")
-                .getItems().indexOf(date);
-        return index;
     }
 
     private List<List<String>> getBodyList() {
