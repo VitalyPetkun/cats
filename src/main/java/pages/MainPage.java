@@ -13,10 +13,10 @@ public class MainPage extends BaseForm {
     }
 
     public void clickSelectItems() {
-        new PopMenu(By.xpath("//h2[text()='Выберите предмет']/parent::span"), "Select items").click();
+        new PopMenu(By.xpath("//h2[text()='Выберите предмет']/parent::span/parent::button"), "Select items").click();
     }
 
     public void clickModuleTestingItem() {
-        new PopMenuItem(By.xpath("//span[text()='Модульное тестирование']"), "Module testing item").click();
+        new PopMenuItem(By.xpath("//span[text()='Модульное тестирование']/parent::a"), "Module testing item").click();
     }
 }

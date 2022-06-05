@@ -5,6 +5,7 @@ import framework.BaseForm;
 import framework.browser.Browser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import steps.ModuleTestingPageSteps.LabTasksPageSteps.VisitStatisticsPageSteps;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -45,6 +46,8 @@ public class VisitStatisticsPage extends BaseForm {
     }
 
     public boolean checkStudentTruancy(String studentName, String date, String truancy) {
+        Browser.refresh();
+        VisitStatisticsPageSteps.assertIsOpen();
         this.switchToIframe();
         String truancyNumber = "";
         for (List<String> row : this.getBodyList()) {
@@ -62,6 +65,14 @@ public class VisitStatisticsPage extends BaseForm {
         new Iframe(By.xpath("//iframe"), "Labs").switchToIframe();
     }
 
+    public void clickMorePopMenu() {
+        new PopMenu(By.xpath("//mat-icon[contains(text(),'more_vert')]/parent::span/parent::button"), "More").click();
+    }
+
+    public void clickExitBtn() {
+        new PopMenuItem(By.xpath("//span[contains(text(),'Выйти')]/parent::button"), "More").click();
+    }
+
     private int getIndexDateLab(String date) {
         int index = new PopMenuItem(By.xpath("//th//div"), "Labs dates")
                 .getItems().indexOf(date);
@@ -69,13 +80,13 @@ public class VisitStatisticsPage extends BaseForm {
     }
 
     private List<List<String>> getBodyList() {
+        List<WebElement> body = Browser.getDriver().findElements(By.xpath("//tbody//tr"));
         List<List<String>> newList = new ArrayList<>();
-        for (int i = 0; i < Browser.getDriver().findElements(By.xpath("//tbody//tr")).size(); i++) {
+        for (int i = 0; i < body.size(); i++) {
             List<String> strRows = new ArrayList<>();
-            for (int j = 0; j < Browser.getDriver()
-                    .findElements(By.xpath("//tbody//tr")).get(i).findElements(By.xpath("*")).size(); j++) {
-                strRows.add(Browser.getDriver()
-                        .findElements(By.xpath("//tbody//tr")).get(i).findElements(By.xpath("*")).get(j).getText());
+            List<WebElement> rows = body.get(i).findElements(By.xpath("*"));
+            for (int j = 0; j < rows.size(); j++) {
+                strRows.add(rows.get(j).getText());
             }
             newList.add(strRows);
         }

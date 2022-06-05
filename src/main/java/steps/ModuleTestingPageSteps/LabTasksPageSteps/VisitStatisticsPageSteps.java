@@ -19,6 +19,14 @@ public class VisitStatisticsPageSteps {
         visitStatisticsPage.clickLab(date);
     }
 
+    public static void clickMorePopMenu() {
+        visitStatisticsPage.clickMorePopMenu();
+    }
+
+    public static void clickExitBtn() {
+        visitStatisticsPage.clickExitBtn();
+    }
+
     public static void assertCheck(String studentName, String date, String truancy) {
         Assert.assertTrue(visitStatisticsPage.checkStudentTruancy(studentName, date, truancy),
                 "Truancy isn't visible");

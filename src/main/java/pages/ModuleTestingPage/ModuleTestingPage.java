@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
 public class ModuleTestingPage extends BaseForm {
 
     public ModuleTestingPage() {
-        super(new Link(By.xpath("//div[contains(@class,'subject-news-component__actions')]"),
+        super(new Link(By.xpath("//div[@class='body__content']"),
                 "Module testing page uniqelement"), "Module testing page");
     }
 

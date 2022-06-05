@@ -104,5 +104,34 @@ public class StudentActivityTest extends BaseTest{
         VisitLabMenuPageSteps.clickTruancyPopMenuItem(TRUANCY);
         VisitLabMenuPageSteps.clickSave();
         VisitStatisticsPageSteps.assertCheck(STUDENT_NAME, LAB_DATE, TRUANCY);
+
+        SmartLogger.logStep(8, "Exit lecturer");
+        VisitStatisticsPageSteps.clickMorePopMenu();
+        VisitStatisticsPageSteps.clickExitBtn();
+        AuthorizationPageSteps.assertIsOpen();
+
+        SmartLogger.logStep(9, "Authorization student");
+        AuthorizationPageSteps.sendLogin(STUDENT_LOGIN);
+        AuthorizationPageSteps.sendPassword(STUDENT_PASSWORD);
+        AuthorizationPageSteps.clickSubmitBtn();
+        DashBoardPageSteps.assertIsOpen();
+
+        SmartLogger.logStep(10, "Click Items");
+        DashBoardPageSteps.clickItems();
+        MainPageSteps.assertIsOpen();
+
+        SmartLogger.logStep(11, "Select module testing");
+        MainPageSteps.clickSelectItems();
+        MainPageSteps.clickModuleTestingItem();
+        ModuleTestingPageSteps.assertIsOpen();
+
+        SmartLogger.logStep(11, "Open visit statistics");
+        ModuleTestingPageSteps.clickLabTasksItem();
+        LabTasksPageSteps.assertIsOpen();
+        LabTasksPageSteps.clickVisitStatistics();
+        VisitStatisticsPageSteps.assertIsOpen();
+
+        SmartLogger.logStep(12, "Check truancy");
+        VisitStatisticsPageSteps.assertCheck(STUDENT_NAME, LAB_DATE, TRUANCY);
     }
 }

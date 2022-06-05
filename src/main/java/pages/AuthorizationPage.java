@@ -12,10 +12,12 @@ public class AuthorizationPage extends BaseForm {
     }
 
     public void sendLogin(String login) {
+        new TextBox(By.xpath("//input[@formcontrolname='userName']"), "Login").click();
         new TextBox(By.xpath("//input[@formcontrolname='userName']"), "Login").inputText(login);
     }
 
     public void sendPassword(String password) {
+        new TextBox(By.xpath("//input[@formcontrolname='userName']"), "Login").click();
         new TextBox(By.xpath("//input[@formcontrolname='password']"), "Password").inputText(password);
     }
 

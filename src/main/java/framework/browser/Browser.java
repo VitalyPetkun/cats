@@ -61,6 +61,10 @@ public class Browser {
         getDriver().switchTo().defaultContent();
     }
 
+    public static void refresh() {
+        getDriver().navigate().refresh();
+    }
+
     public static void switchToWindow(String windowHandle) {
         getDriver().switchTo().window(windowHandle);
     }
